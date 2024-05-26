@@ -16,19 +16,19 @@ namespace APBD_Zadanie_6.Configuration
 
             builder.ToTable("Prescription_Medicament");
 
-            builder.Property(e => e.Dose);
-            builder.Property(e => e.Details).HasMaxLength(100).IsRequired();
+            builder.Property(e => e.Dose); //konkretne pole w tabeli
+            builder.Property(e => e.Details).HasMaxLength(100).IsRequired(); //ograniczenia, wymagania pol
 
             builder.HasOne(e => e.IdMedicamentNav)
                 .WithMany(e => e.PrescriptionMedicaments)
                 .HasForeignKey(e => e.IdMedicament)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("Medicament_Prescription_FK");
+                .HasConstraintName("Medicament_Prescription_FK"); //ustawienie klucza obcego
 
-            builder.HasOne(e => e.IdPrescriptionNav)
-                .WithMany(e => e.PrescriptionMedicaments)
-                .HasForeignKey(e => e.IdPrescription)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+            builder.HasOne(e => e.IdPrescriptionNav) //to jest ta klasa co wskazuje na liste
+                .WithMany(e => e.PrescriptionMedicaments) //to jest lista
+                .HasForeignKey(e => e.IdPrescription) //
+                .OnDelete(DeleteBehavior.ClientSetNull) //na usuniecie to co
                 .HasConstraintName("Prescription_Medicament_FK");
 
             // adding data

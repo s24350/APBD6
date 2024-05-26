@@ -11,7 +11,6 @@ namespace APBD_Zadanie_6.Models
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
 
-
         public virtual ICollection<Prescription> Prescriptions { get; set; } = new List<Prescription>();
     }
 }
