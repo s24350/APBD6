@@ -12,9 +12,10 @@ namespace APBD_Zadanie_6.Configuration
             builder.HasKey(e => new
             {
                 e.IdPrescription
-            }).HasName("PrescriptionMedicamend_PK");
+            }).HasName("Prescription_PK");
 
             builder.ToTable(nameof(Prescription));
+            builder.Property(e => e.IdPrescription).UseIdentityColumn();
 
             //property itd.
             builder.Property(e => e.Date);
@@ -23,14 +24,12 @@ namespace APBD_Zadanie_6.Configuration
             builder.HasOne(e => e.IdPatientNav)
                 .WithMany(e => e.Prescriptions)
                 .HasForeignKey(e => e.IdPatient)
-                .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("Patient_FK");
+                .HasConstraintName("Prescription_Patient_FK");
 
             builder.HasOne(e => e.IdDoctorNav)
                 .WithMany(e => e.Prescriptions)
                 .HasForeignKey(e => e.IdDoctor)
-                .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("Doctor_FK");
+                .HasConstraintName("Prescription_Doctor_FK");
 
             var prescription = new List<Prescription>();
 
@@ -38,7 +37,7 @@ namespace APBD_Zadanie_6.Configuration
             {
                 IdPrescription = 1,
                 Date = DateTime.Now.AddDays(-10),
-                DueDate = DateTime.Now.AddDays(-110),
+                DueDate = DateTime.Now.AddDays(100),
                 IdPatient = 1,
                 IdDoctor = 1
             });
@@ -47,7 +46,7 @@ namespace APBD_Zadanie_6.Configuration
             {
                 IdPrescription = 2,
                 Date = DateTime.Now.AddDays(-20),
-                DueDate = DateTime.Now.AddDays(-120),
+                DueDate = DateTime.Now.AddDays(90),
                 IdPatient = 8,
                 IdDoctor = 3
             });
@@ -56,11 +55,11 @@ namespace APBD_Zadanie_6.Configuration
             {
                 IdPrescription = 3,
                 Date = DateTime.Now.AddDays(-30),
-                DueDate = DateTime.Now.AddDays(-130),
+                DueDate = DateTime.Now.AddDays(80),
                 IdPatient = 5,
                 IdDoctor = 1
             });
-
+            /*
             prescription.Add(new Prescription
             {
                 IdPrescription = 4,
@@ -77,7 +76,8 @@ namespace APBD_Zadanie_6.Configuration
                 DueDate = DateTime.Now.AddDays(-150),
                 IdPatient = 4,
                 IdDoctor = 6
-            });
+            });*/
+            builder.HasData(prescription);
         }
 
     }

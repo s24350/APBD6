@@ -48,7 +48,7 @@ namespace APBD_Zadanie_6.Configuration
                 IdMedicament = 2,
                 IdPrescription = 1,
                 Dose = 250,
-                Details = "2 pills in am and pm"
+                Details = "1 pill in am and pm"
             });
 
             list.Add(new PrescriptionMedicament
@@ -56,7 +56,7 @@ namespace APBD_Zadanie_6.Configuration
                 IdMedicament = 2,
                 IdPrescription = 2,
                 Dose = 250,
-                Details = "2 pills in am and pm"
+                Details = "3 pills in am"
             });
 
             list.Add(new PrescriptionMedicament
@@ -64,7 +64,7 @@ namespace APBD_Zadanie_6.Configuration
                 IdMedicament = 3,
                 IdPrescription = 3,
                 Dose = 250,
-                Details = "2 pills in am and pm"
+                Details = "1,5 pills in pm"
             });
 
             builder.HasData(list);

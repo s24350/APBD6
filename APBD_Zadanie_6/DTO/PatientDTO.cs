@@ -1,4 +1,6 @@
-﻿namespace APBD_Zadanie_6.DTO
+﻿using APBD_Zadanie_6.Models;
+
+namespace APBD_Zadanie_6.DTO
 {
     public class PatientDTO
     {
@@ -7,8 +9,5 @@
         public string LastName { get; set; } 
 
         public DateTime birthDate { get; set; }
-
-        //DO POPRAWY
-        public IEnumerable<PatientDTO> Patients { get; set; }
     }
 }

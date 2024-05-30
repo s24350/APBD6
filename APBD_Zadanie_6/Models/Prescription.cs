@@ -4,7 +4,6 @@ namespace APBD_Zadanie_6.Models
 {
     public class Prescription
     {
-        [Required]
         public int IdPrescription { get; set; }
         public DateTime Date { get; set; }
 

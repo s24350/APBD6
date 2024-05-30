@@ -1,4 +1,6 @@
+using APBD_Zadanie_6.Interfaces;
 using APBD_Zadanie_6.Models;
+using APBD_Zadanie_6.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,8 +12,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddDbContext<Context>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("sXXXXX"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("s24350"));
 });
+builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IPrescriptionRepository, PrescriptionRepository>();
 
 
 var app = builder.Build();

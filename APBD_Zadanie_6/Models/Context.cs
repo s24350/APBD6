@@ -3,6 +3,9 @@ using APBD_Zadanie_6.Configuration;
 using APBD_Zadanie_6.Models;
 using Microsoft.EntityFrameworkCore;
 
+// Open terminal usig ctrl + `
+
+
 namespace APBD_Zadanie_6.Models
 {
     public class Context : DbContext
