@@ -28,5 +28,14 @@ namespace APBD_Zadanie_6.Models
             modelBuilder.ApplyConfiguration(new PrescriptionConfig());
             modelBuilder.ApplyConfiguration(new PrescriptionMedicamentConfig());
         }
+        //dodane po sugestii prowadzacego, jako potencjalne rozwiazanie polaczenia z baza danych.
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("s24350", builder =>
+            {
+                builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
+            });
+            base.OnConfiguring(optionsBuilder);
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using APBD_Zadanie_6.DTO;
+using APBD_Zadanie_6.DTO.PrescriptionRequest;
 using APBD_Zadanie_6.Interfaces;
 using APBD_Zadanie_6.Models;
 using Microsoft.AspNetCore.Mvc;
